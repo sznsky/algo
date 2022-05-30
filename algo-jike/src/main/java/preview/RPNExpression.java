@@ -1,4 +1,4 @@
-package serven.day.study;
+package preview;
 
 /**
  * leetcode:150

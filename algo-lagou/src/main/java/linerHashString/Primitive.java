@@ -11,12 +11,13 @@ import java.util.List;
 public class Primitive {
 
     public static void main(String[] args) {
+        Primitive primitive = new Primitive();
         String s = "()()";
         String s1 = "(())()";
         String s2 = "(())(()(()))";
-        System.out.println(removeOuterParentheses(s));
-        System.out.println(removeOuterParentheses(s1));
-        System.out.println(removeOuterParentheses(s2));
+        System.out.println(primitive.removeOuterParentheses(s));
+        System.out.println(primitive.removeOuterParentheses(s1));
+        System.out.println(primitive.removeOuterParentheses(s2));
     }
 
 
@@ -29,7 +30,7 @@ public class Primitive {
      *  *         //2.将多个原语拼接在一起，然后去掉外层括号。
      * @return
      */
-    public static String removeOuterParentheses(String s){
+    public String removeOuterParentheses(String s){
         List<String> list = new ArrayList<>();
         int left = 0;
         int right = 0;
