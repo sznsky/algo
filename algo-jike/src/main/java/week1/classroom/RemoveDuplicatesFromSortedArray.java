@@ -11,7 +11,6 @@ public class RemoveDuplicatesFromSortedArray {
         int[] nums = {1,1,2};
         int n = fromSortedArray.removeDuplicates(nums);
         System.out.println(n);
-
     }
 
 
