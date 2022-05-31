@@ -33,9 +33,6 @@ public class MergeSortedArray {
         MergeSortedArray mergeSortedArray = new MergeSortedArray();
         mergeSortedArray.merge(nums1,m,nums2,n);
         System.out.println(Arrays.toString(nums1));
-
-
-
     }
 
     /**
