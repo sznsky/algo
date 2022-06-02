@@ -41,7 +41,6 @@ public class LinkedListCycleII {
             if(!set.add(head)){
                 return head;
             }
-            set.add(head);
             head = head.next;
         }
         return null;
