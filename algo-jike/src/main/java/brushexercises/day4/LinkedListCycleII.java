@@ -2,13 +2,10 @@ package brushexercises.day4;
 
 import comm.ListNode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
- * @Describe :
+ * @Describe :leetcode:142
  * @Author : sunzhenning
  * @Since : 2022/6/1 19:42
  */
@@ -46,6 +43,29 @@ public class LinkedListCycleII {
             }
             set.add(head);
             head = head.next;
+        }
+        return null;
+    }
+
+    /**
+     * 快慢指针的实现方式
+     * @param head
+     * @return
+     */
+    public ListNode detectCycle2(ListNode head){
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast!=null && fast.next!=null){
+            //快指针一次走两步，慢指针一次走一步
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow){
+                while (slow != head){
+                    slow = slow.next;
+                    head = head.next;
+                }
+                return head;
+            }
         }
         return null;
     }
