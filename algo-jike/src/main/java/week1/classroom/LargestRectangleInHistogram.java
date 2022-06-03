@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 /**
+ * @auhor sunzhenning
  * leetcode:84. 【柱状图中最大的矩形】
  * 考察知识点：单调栈思想
  */
@@ -12,7 +13,7 @@ public class LargestRectangleInHistogram {
     public int largestRectangleArea(int[] heights) {
         //最终的结果，最大矩形面积
         int answer = 0;
-        //在原数组的的末尾加一个0的元素,不加这个，最后可能只剩下单调递增的矩形，还要计算最大的矩形
+        //在原数组的的末尾加一个0的元素,不加这个，最后可能只剩下单调递增的矩形数组，还要计算最大的矩形
         //下面的程序其实就在计算最大的矩形面积
         heights = Arrays.copyOf(heights, heights.length+1);
         //单调栈，存放单调递增的矩形
