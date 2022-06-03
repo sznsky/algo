@@ -10,6 +10,14 @@ import java.util.Stack;
  */
 public class LargestRectangleInHistogram {
 
+    public static void main(String[] args) {
+        int[] heights = {2,1,0,5,6,2,3};
+        LargestRectangleInHistogram rects = new LargestRectangleInHistogram();
+        int result = rects.largestRectangleArea(heights);
+        System.out.println(result);
+
+    }
+
     public int largestRectangleArea(int[] heights) {
         //最终的结果，最大矩形面积
         int answer = 0;
