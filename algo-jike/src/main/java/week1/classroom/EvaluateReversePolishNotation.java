@@ -1,4 +1,4 @@
-package preview;
+package week1.classroom;
 
 import java.util.Stack;
 

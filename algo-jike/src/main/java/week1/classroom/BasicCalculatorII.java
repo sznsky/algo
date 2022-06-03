@@ -1,4 +1,4 @@
-package preview;
+package week1.classroom;
 
 /**
  * 输入：s = "3+2*2"
