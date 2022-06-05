@@ -5,86 +5,33 @@ import java.util.Arrays;
 /**
  * leetcode:641 【设计循环双端队列】
  * 思路：1.使用链表实现 2.使用数组
- * 下面使用数组实现
+ * 使用数组两种方式：1.常规方法，左右移动数组 2.使用头指针和尾指针实现
+ * 下面使用1方法实现，朴素解法
  */
 public class MyCircularDeque {
-
     /**
-     * ["MyCircularDeque",
-     * "insertFront",
-     * "insertLast",
-     * "getFront",
-     * "insertLast",
-     * "getFront",
-     * "insertFront",
-     * "getRear",
-     * "getFront",
-     * "getFront",
-     * "deleteLast",
-     * "getRear"]
-     * [[5],[7],[0],[],[3],[],[9],[],[],[],[],[]]
+     * 数组中实际存储数据的长度
      */
-    public static void main(String[] args) {
-        MyCircularDeque myCircularDeque = new MyCircularDeque(5);
-        System.out.println(Arrays.toString(myCircularDeque.deque));
-        myCircularDeque.insertFront(7);
-        System.out.println(Arrays.toString(myCircularDeque.deque));
-        myCircularDeque.insertLast(0);
-        System.out.println(Arrays.toString(myCircularDeque.deque));
-        myCircularDeque.getFront();
-        myCircularDeque.insertLast(3);
-        System.out.println(Arrays.toString(myCircularDeque.deque));
-        myCircularDeque.getRear();
-        myCircularDeque.getFront();
-        myCircularDeque.getFront();
-        myCircularDeque.deleteLast();
-        System.out.println(Arrays.toString(myCircularDeque.deque));
-        myCircularDeque.getRear();
-
-    }
-
+    private int size;
     /**
-     * 存放队列的数组容器
+     * 存放数据数组
      */
     private int[] deque;
 
-    /**
-     * 从头部进入队列元素的个数
-     */
-    private int frontSize = 0;
-    /**
-     * 从尾部进入队列元素的个数
-     */
-    private int lastSize = 0;
-
-
-
-    /**
-     * 构造方法:由于值是value >=0的
-     * @param k
-     */
     public MyCircularDeque(int k) {
         deque = new int[k];
-        for(int i = 0;i<k;i++){
-            deque[i] = -1;
-        }
+        size = 0;
     }
 
-    //往头部插入一个元素
     public boolean insertFront(int value) {
         if(isFull()){
             return false;
         }
-        if(frontSize == 0){
-            deque[0] = value;
-            frontSize++;
-            return true;
-        }
-        for(int i=frontSize-1;i>=0;i--){
+        for(int i=size-1;i>=0;i--){
             deque[i+1] = deque[i];
         }
         deque[0] = value;
-        frontSize++;
+        size++;
         return true;
     }
 
@@ -92,16 +39,8 @@ public class MyCircularDeque {
         if(isFull()){
             return false;
         }
-        if(lastSize == 0){
-            deque[deque.length-1] = value;
-            lastSize++;
-            return true;
-        }
-        for(int i=deque.length-lastSize;i<deque.length;i++){
-            deque[i-1] = deque[i];
-        }
-        deque[deque.length-1] = value;
-        lastSize++;
+        deque[size] = value;
+        size++;
         return true;
     }
 
@@ -109,11 +48,11 @@ public class MyCircularDeque {
         if(isEmpty()){
             return false;
         }
-        if(deque[0] == -1){
-            return false;
+        deque[0] = 0;
+        for(int i=0;i<size-1;i++){
+            deque[i] = deque[i+1];
         }
-        deque[0] = -1;
-        frontSize--;
+        size--;
         return true;
     }
 
@@ -121,45 +60,32 @@ public class MyCircularDeque {
         if(isEmpty()){
             return false;
         }
-        if(deque[deque.length-1] == -1){
-            return false;
-        }
-        deque[deque.length-1] = -1;
-        lastSize--;
+        deque[size-1] = 0;
+        size--;
         return true;
     }
 
     public int getFront() {
-        if(deque[0] != -1){
-            return deque[0];
+        if(isEmpty()){
+            return -1;
         }
-        return -1;
+        return deque[0];
     }
 
     public int getRear() {
-        if(deque[deque.length-1] != -1){
-            return deque[deque.length-1];
+        if(isEmpty()){
+            return -1;
         }
-        return -1;
+        return deque[size-1];
     }
 
     public boolean isEmpty() {
-        if((frontSize + lastSize) == 0){
-            return true;
-        }
-        return false;
+        return size == 0;
     }
 
     public boolean isFull() {
-        if((frontSize + lastSize) == deque.length){
-            return true;
-        }
-        return false;
+        return size == deque.length;
     }
-
-
-
-
 
 
 
