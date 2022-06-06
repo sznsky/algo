@@ -50,6 +50,7 @@ public class LRUCache {
 
     public LRUCache(int capacity) {
         this.hash = new HashMap<>();
+        //头尾保护节点
         this.head = new Node();
         this.tail = new Node();
         head.next = tail;

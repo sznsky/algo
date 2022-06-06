@@ -1,12 +1,24 @@
 package week1.classroom;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * leetcode : 239 【滑动窗口最大值】
- * 考察知识点：单调栈思想
+ * 考察知识点：单调队列思想
  */
 public class SlidingWindowMaximum {
 
     public int[] maxSlidingWindow(int[] nums, int k) {
+        Deque<Integer> deque = new LinkedList<>();
+        int[] answer = new int[nums.length-k];
+        for(int i=0;i<nums.length;i++){
+            while(nums[deque.getLast()] < nums[i]){
+                deque.removeLast();
+            }
+            deque.push(i);
+        }
+
 
 
         return null;
