@@ -18,13 +18,9 @@ public class Subsets {
         List<List<Integer>> result = subsets.subsets(nums);
         System.out.println(Arrays.toString(result.toArray()));
     }
-    /**
-     * 最终答案
-     */
+    //最终答案
     private List<List<Integer>> ans;
-    /**
-     * 局部答案
-     */
+    //局部答案
     private List<Integer> s;
 
     public List<List<Integer>> subsets(int[] nums) {
