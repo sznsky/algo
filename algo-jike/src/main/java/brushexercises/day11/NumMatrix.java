@@ -32,7 +32,7 @@ public class NumMatrix {
     }
 
     public int sumRegion(int row1, int col1, int row2, int col2) {
-        //原推到的方法为：preSums[row2][col2] - preSums[row2][col1-1] - preSums[row1-1][col2] + preSums[row1-1][col1-1];
+        //原推导方法为：preSums[row2][col2] - preSums[row2][col1-1] - preSums[row1-1][col2] + preSums[row1-1][col1-1];
         //下面的下标都是1的情况下，因为preSums这个二维数组的row和col都扩大了一个1
         return preSums[row2+1][col2+1] - preSums[row2+1][col1] - preSums[row1][col2+1] + preSums[row1][col1];
     }
