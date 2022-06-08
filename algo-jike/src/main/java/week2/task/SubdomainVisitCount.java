@@ -8,6 +8,7 @@ import java.util.*;
  * @Since : 2022/6/7 10:22
  * 思路：1.拆分域名存入map：例如50 google.mail.com 将"com":50 "mail.com":50，"google.mail.com":50 存入map
  * 2.put之前判断是否已经存在，存在就累加次数
+ * 3.通过遍历map将结果存入list
  */
 public class SubdomainVisitCount {
 
