@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @Describe : leetcode:303 区域和检索 - 数组不可变
  * @Author : sunzhenning
  * @Since : 2022/6/8 17:37
- * 思路：前缀求和解法
+ * 思路：前缀求和解法，将当前元素前面的元素累加。
  */
 public class NumArray1 {
 
