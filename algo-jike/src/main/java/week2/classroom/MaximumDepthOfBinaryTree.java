@@ -37,9 +37,11 @@ public class MaximumDepthOfBinaryTree {
             return;
         }
         ans = Math.max(ans,depth);
+        //深度递增
         ++depth;
         calc(root.left);
         calc(root.right);
+        //还原现场
         depth--;
     }
 
