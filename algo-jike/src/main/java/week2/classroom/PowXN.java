@@ -10,7 +10,7 @@ public class PowXN {
 
     public static void main(String[] args) {
         PowXN powXN = new PowXN();
-        double ans = powXN.myPow1(2.00000,-2);
+        double ans = powXN.myPow1(2.00000,4);
         System.out.println(ans);
     }
 
@@ -25,14 +25,18 @@ public class PowXN {
             return 1;
         }
         if(n == -(1l<<31)){
-            //int的取值范围为[-2^31,2^31-1]，下面-(n+1)=2^31-1,那就少计算了一次，需要多加一次x
+            //int的取值范围为[-2^31,2^31-1]，下面-(n+1)=2^31-1,那就少计算了一次，需要多乘一次x
             return 1.0/(myPow1(x,-(n+1))*x);
         }
         if(n < 0){
             return 1.0/myPow1(x,-n);
         }
+        System.out.println("开始折半计算开始....2/n:"+n/2);
         double temp = myPow1(x, n/2);
+        System.out.println("开始折半计算结束：temp："+temp);
+        System.out.println("折半后的开始计算开始....n/2:"+n/2);
         double ans = temp*temp;
+        System.out.println("折半后的开始计算结束：ans："+ans);
         if(n % 2 == 1){
             ans = ans*x;
         }
