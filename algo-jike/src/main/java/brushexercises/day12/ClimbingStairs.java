@@ -16,8 +16,33 @@ public class ClimbingStairs {
 
     public static void main(String[] args) {
         ClimbingStairs climbingStairs = new ClimbingStairs();
-        System.out.println(climbingStairs.climbStairs(5));
+        System.out.println(climbingStairs.climbStairs(3));
     }
+
+    /**
+     * 动态规划实现
+     * @param n
+     * @return
+     */
+    public int climbStairs1(int n) {
+        if(n == 1){
+            return 1;
+        }
+        if(n == 2){
+            return 2;
+        }
+        int fn1 = 0;
+        int fn2 = 1;
+        int result = 0;
+        for(int i=1;i<=n;i++){
+            //状态转移
+            result = fn2 + fn1;
+            fn1 = fn2;
+            fn2 = result;
+        }
+        return result;
+    }
+
     public int climbStairs(int n) {
         if(n == 1){
             return 1;
