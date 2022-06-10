@@ -35,7 +35,7 @@ public class ClimbingStairs {
         int fn2 = 1;
         int result = 0;
         for(int i=1;i<=n;i++){
-            //状态转移
+            //状态转移：要理解下面这段代码
             result = fn2 + fn1;
             fn1 = fn2;
             fn2 = result;
@@ -43,6 +43,11 @@ public class ClimbingStairs {
         return result;
     }
 
+    /**
+     * 朴素解法：找到斐波拉契规律
+     * @param n
+     * @return
+     */
     public int climbStairs(int n) {
         if(n == 1){
             return 1;
