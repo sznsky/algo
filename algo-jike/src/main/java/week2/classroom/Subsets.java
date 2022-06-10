@@ -8,6 +8,7 @@ import java.util.List;
  * @Describe : leetcode:78 【子集 】
  * @Author : sunzhenning
  * @Since : 2022/6/7 8:57
+ * 给定一个数组，求出所有的子集
  * 思路：递归算法
  */
 public class Subsets {
