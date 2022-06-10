@@ -2,6 +2,7 @@ package brushexercises.day13;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
 * @Describe :
@@ -13,7 +14,7 @@ public class ThreeNumSum {
 
     public static void main(String[] args) {
         ThreeNumSum threeNumSum = new ThreeNumSum();
-        int[] nums = {3,-3,0};
+        int[] nums = {1,-1,-1,0};
         threeNumSum.threeSum(nums);
         System.out.println(Arrays.toString(threeNumSum.ans.toArray()));
     }
@@ -32,6 +33,10 @@ public class ThreeNumSum {
 
     public void combinations(int index, int k,int[] nums) {
         if (index >= nums.length || s.size() > 3) {
+            return;
+        }
+        if(nums.length == 3 && sum(nums) == 0){
+            ans.add(convert(nums));
             return;
         }
         if (s.size() == k) {
@@ -67,6 +72,15 @@ public class ThreeNumSum {
             sum += nums[i];
         }
         return sum;
+    }
+
+    private List<Integer> convert(int[] nums){
+        List<Integer> list = new ArrayList<>();
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            list.add(nums[i]);
+        }
+        return list;
     }
 
 
