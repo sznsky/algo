@@ -15,6 +15,11 @@ public class MaximumSubarray {
         System.out.println(maximumSubarray.maxSubArray(nums));
     }
 
+    /**
+     * 方法：维护一个前置元素最大值+当前元素和当前元素的比较
+     * @param nums
+     * @return
+     */
     public int maxSubArray(int[] nums) {
         //维护一个前置元素和大最大值
         int preMaxSum = 0;
@@ -28,6 +33,11 @@ public class MaximumSubarray {
         return ans;
     }
 
+    /**
+     * 方法1
+     * @param nums
+     * @return
+     */
     public int maxSubArray1(int[] nums) {
         int ans = nums[0];
         for(int i=1;i<nums.length;i++){
