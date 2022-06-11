@@ -14,7 +14,7 @@ public class ThreeNumSum {
 
     public static void main(String[] args) {
         ThreeNumSum threeNumSum = new ThreeNumSum();
-        int[] nums = {1,-1,-1,0};
+        int[] nums = {13,-11,-14,4,-9,-10,-11,7,-14,-9,14,0,-5,-7,6,-9,11,6,-14,-12,-10,9,-8,-7,5,6,8,-12,-1,-4,14,-3,0,7,9,7,12,13,-9,13,11,-10,-10,-9,-10,12,-10,8,-5,13,11,-8,7,-12,0,-11,2,-14,-8,8,-3,13,-9,5,5,7,-11,-6,5,-13,-7,1,14,-10,-1,-11,-13,4,12,-11,2,0,-4,-14,4,4,-10,13,-3,-10,6,1,-12,4,-9,1,-4,-13,10,8,-11,10,-14,-12,-14,1,-8,10,-10,11,-15,0,-3,-12,1,-14,-1,-1,6,11,-4,-3,-2,-1,-13};
         threeNumSum.threeSum(nums);
         System.out.println(Arrays.toString(threeNumSum.ans.toArray()));
     }
@@ -23,7 +23,9 @@ public class ThreeNumSum {
         ans = new ArrayList<>();
         s = new ArrayList<>();
         set = new HashSet();
-        combinations(0, 3, nums);
+        int[] numsNew = getNums(nums,3);
+        combinations(0, 3, numsNew);
+        System.out.println(ans.size());
         return ans;
     }
 
@@ -32,11 +34,10 @@ public class ThreeNumSum {
     private Set<String> set;
 
     public void combinations(int index, int k,int[] nums) {
-        if (index >= nums.length || s.size() > 3) {
+        if(nums.length < k){
             return;
         }
-        if(nums.length == 3 && sum(nums) == 0){
-            ans.add(convert(nums));
+        if (index >= nums.length && s.size() !=k) {
             return;
         }
         if (s.size() == k) {
@@ -61,26 +62,34 @@ public class ThreeNumSum {
         s.remove(s.size() - 1);
     }
 
-    /**
-     *
-     * @param nums
-     * @return
-     */
-    private int sum(int[] nums){
-        int sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
+    private int[] getNums(int[] nums,int k){
+        if(nums.length <= k){
+            return nums;
         }
-        return sum;
-    }
-
-    private List<Integer> convert(int[] nums){
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            if(map.containsKey(nums[i])){
+               int val =  map.get(nums[i]);
+               if(val < k){
+                   map.put(nums[i],val+1);
+               }
+            }else{
+                map.put(nums[i],1);
+            }
+        }
         List<Integer> list = new ArrayList<>();
-        int sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            list.add(nums[i]);
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+            int key = entry.getKey();
+            int val = entry.getValue();
+            for(int i=0;i<val;i++){
+                list.add(key);
+            }
         }
-        return list;
+        int[] nums_new = new int[list.size()];
+        for(int i =0;i<list.size();i++){
+            nums_new[i] = list.get(i);
+        }
+        return nums_new;
     }
 
 
