@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 public class MergeKSortedLists {
 
     /**
-     * 合并k个链表：方法一：朴素解法
-     * 思路：1.将k个链表遍历，将所有值放到List集合中，将集合排序
+     * 合并k个链表：朴素解法
+     * 思路：1.将链表遍历，将所有值放到List集合中，将集合排序
      * 2.将该集合转为链表。
      * @param lists
      * @return
