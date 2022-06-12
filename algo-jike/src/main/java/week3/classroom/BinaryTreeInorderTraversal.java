@@ -1,0 +1,69 @@
+package week3.classroom;
+
+import comm.TreeNode;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * leetcode:94
+ * 二叉树的中序遍历
+ * 思路:中序遍历：左->根->右
+ */
+public class BinaryTreeInorderTraversal {
+
+    /**
+     * 遍历后的结果
+     */
+    private List<Integer> seq;
+
+    /**
+     * 二叉树的中序遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> inorderTraversal(TreeNode root) {
+        seq = new ArrayList<>();
+        dfs(root);
+        return seq;
+    }
+
+    /**
+     * 中序遍历
+     * @param root
+     */
+    private void dfs(TreeNode root){
+        if(root == null){
+            return;
+        }
+        dfs(root.left);
+        seq.add(root.val);
+        dfs(root.right);
+    }
+
+    /**
+     * 先序遍历
+     * @param root
+     */
+    private void dfs1(TreeNode root){
+        if(root == null){
+            return;
+        }
+        seq.add(root.val);
+        dfs(root.left);
+        dfs(root.right);
+    }
+
+    /**
+     * 后序遍历
+     * @param root
+     */
+    private void dfs2(TreeNode root){
+        if(root == null){
+            return;
+        }
+        dfs(root.left);
+        dfs(root.right);
+        seq.add(root.val);
+    }
+}
