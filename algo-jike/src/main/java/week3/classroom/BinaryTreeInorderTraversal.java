@@ -50,8 +50,8 @@ public class BinaryTreeInorderTraversal {
             return;
         }
         seq.add(root.val);
-        dfs(root.left);
-        dfs(root.right);
+        dfs1(root.left);
+        dfs1(root.right);
     }
 
     /**
@@ -62,8 +62,8 @@ public class BinaryTreeInorderTraversal {
         if(root == null){
             return;
         }
-        dfs(root.left);
-        dfs(root.right);
+        dfs2(root.left);
+        dfs2(root.right);
         seq.add(root.val);
     }
 }
