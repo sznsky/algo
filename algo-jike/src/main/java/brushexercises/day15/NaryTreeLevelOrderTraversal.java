@@ -6,7 +6,7 @@ import javafx.util.Pair;
 import java.util.*;
 
 /**
- * @Describe :leetcode:429 N叉树的层级遍历
+ * @Describe :leetcode:429 N叉树的层级遍历（广度优先）
  * @Author : sunzhenning
  * @Since : 2022/6/13 15:35
  */
