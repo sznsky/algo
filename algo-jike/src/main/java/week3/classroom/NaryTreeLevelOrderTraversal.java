@@ -23,12 +23,12 @@ public class NaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder(Node root) {
         //存放结果
         List<List<Integer>> seq = new ArrayList<>();
-        //存放的是节点信息和层次num
+        //pair对，存放的是节点信息和层次level
         Queue<Pair<Node,Integer>> queue = new LinkedList<>();
         if(root == null){
             return seq;
         }
-        //pair对，首先存放的是根节点，和第一层的0信息
+        //pair对根节点和第0层信息
         Pair<Node,Integer> rootPair = new Pair<>(root, 0);
         queue.add(rootPair);
         while(!queue.isEmpty()){

@@ -1,4 +1,4 @@
-package week3.classroom;
+package brushexercises.day15;
 
 import comm.TreeNode;
 
@@ -6,30 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * leetcode:94
- * 二叉树的中序遍历
- * 思路:中序遍历：左->根->右
+ * @Describe : 94. 二叉树的中序遍历
+ * @Author : sunzhenning
+ * @Since : 2022/6/13 10:56
+ * 给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。
  */
 public class BinaryTreeInorderTraversal {
 
-    /**
-     * 遍历后的结果
-     */
-    private List<Integer> seq;
+    private List<Integer> ans;
 
-    /**
-     * 二叉树的中序遍历
-     * @param root
-     * @return
-     */
     public List<Integer> inorderTraversal(TreeNode root) {
-        seq = new ArrayList<>();
+        ans = new ArrayList<>();
         dfs(root);
-        return seq;
+        return ans;
     }
 
     /**
-     * 中序遍历:左根右
+     * 中序遍历：左根右
      * @param root
      */
     private void dfs(TreeNode root){
@@ -37,7 +30,7 @@ public class BinaryTreeInorderTraversal {
             return;
         }
         dfs(root.left);
-        seq.add(root.val);
+        ans.add(root.val);
         dfs(root.right);
     }
 
@@ -45,25 +38,33 @@ public class BinaryTreeInorderTraversal {
      * 先序遍历：根左右
      * @param root
      */
-    private void dfs1(TreeNode root){
+    private void dfsPre(TreeNode root){
         if(root == null){
             return;
         }
-        seq.add(root.val);
-        dfs1(root.left);
-        dfs1(root.right);
+        ans.add(root.val);
+        dfsPre(root.left);
+        dfsPre(root.right);
     }
 
     /**
      * 后序遍历：左右根
      * @param root
      */
-    private void dfs2(TreeNode root){
+    private void dfsLast(TreeNode root){
         if(root == null){
             return;
         }
-        dfs2(root.left);
-        dfs2(root.right);
-        seq.add(root.val);
+        dfsLast(root.left);
+        dfsLast(root.right);
+        ans.add(root.val);
     }
+
+
+
+
+
+
+
+
 }
