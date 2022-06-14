@@ -24,7 +24,7 @@ public class NAryTreePreorderTraversal {
     }
 
     /**
-     * 递归遍历：根->左->右
+     * 递归遍历：根->依次遍历子集
      * @param root
      */
     private void dfs(Node root){
