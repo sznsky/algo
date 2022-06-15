@@ -14,6 +14,33 @@ import comm.TreeNode;
  */
 public class ValidateBinarySearchTree {
 
+    public static void main(String[] args) {
+        ValidateBinarySearchTree tree = new ValidateBinarySearchTree();
+        TreeNode root = new TreeNode();
+        root.val = 5;
+
+        TreeNode leftRoot = new TreeNode();
+        leftRoot.val = 4;
+        root.left = leftRoot;
+
+        TreeNode rightRoot = new TreeNode();
+        rightRoot.val = 6;
+        root.right = rightRoot;
+
+
+        TreeNode leftRightRoot = new TreeNode();
+        leftRightRoot.val = 3;
+        rightRoot.left = leftRightRoot;
+
+        TreeNode rightRightRoot = new TreeNode();
+        rightRightRoot.val = 7;
+        rightRoot.right = rightRightRoot;
+
+
+
+        System.out.println(tree.isValidBST(root));
+    }
+
     public boolean isValidBST(TreeNode root) {
         if(root == null){
             return true;
@@ -23,17 +50,21 @@ public class ValidateBinarySearchTree {
     }
 
     boolean check(TreeNode root,long leftRange,long rightRange){
+        System.out.println("root:"+(root!=null?root.val:null)+",leftRange:"+leftRange+",rightRange:"+rightRange);
         //节点为空，说明遍历到最底层了，没有出现不符合条件的情况，返回true
         if(root == null){
+            System.out.println(true);
             return true;
         }
         //这个就是不符合二叉搜索树条件的情况
         if(root.val < leftRange || root.val > rightRange){
+            System.out.println(false);
             return false;
         }
         //左右节点分别递归，需要注意条件：左树的值一定比root节点的值小，右树的值一定要比root节点的值大
-        boolean bLeft = check(root.left,leftRange,(long)root.val-1 );
+        boolean bLeft = check(root.left,leftRange,(long)root.val-1);
         boolean bRight = check(root.right, (long)root.val+1,rightRange);
+        System.out.println("&&:"+(bLeft && bRight));
         return bLeft && bRight;
     }
 
