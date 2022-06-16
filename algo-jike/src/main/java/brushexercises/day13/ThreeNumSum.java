@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
-* @Describe :
+* @Describe :leetcode:15. 三数之和
 * @Author : sunzhenning
 * @Since : 2022/6/10 15:38
  * 思路:使用递归，找出所有三个数组合数组，从中找出等于0的数组
