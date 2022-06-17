@@ -32,11 +32,15 @@ public class GenerateParentheses {
             return store.get(n);
         }
         for(int k=1;k<=n;k++){
-            List<String> A = generateParenthesis(k-1);
-            List<String> B = generateParenthesis(n-k);
-            for(String a: A){
-                for(String b: B){
+            System.out.println("==================K:"+k+",n:"+n);
+            List<String> aList = generateParenthesis(k-1);
+            List<String> bList = generateParenthesis(n-k);
+            for(String a: aList){
+                System.out.println("a:"+a);
+                for(String b: bList){
+                    System.out.println("b:"+b);
                     ans.add("("+a+")"+b);
+                    System.out.println("("+a+")"+b);
                 }
             }
         }
