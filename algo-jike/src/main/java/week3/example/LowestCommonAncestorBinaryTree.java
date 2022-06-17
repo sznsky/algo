@@ -1,4 +1,4 @@
-package week3.homework;
+package week3.example;
 
 import comm.TreeNode;
 import javafx.util.Pair;
