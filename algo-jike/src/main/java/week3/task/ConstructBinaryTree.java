@@ -2,7 +2,9 @@ package week3.task;
 
 import comm.TreeNode;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Describe : leetcode:【106】. 从中序与后序遍历序列构造二叉树
@@ -12,28 +14,56 @@ import java.util.HashMap;
  */
 public class ConstructBinaryTree {
 
-    HashMap<Integer,Integer> inorderArrayMap = new HashMap<>();
-    int[] post;
+    public static void main(String[] args) {
+        ConstructBinaryTree constructBinaryTree = new ConstructBinaryTree();
+        int[] inorder = {9,3,15,20,7}, postorder = {9,15,7,20,3};
+        TreeNode treeNode = constructBinaryTree.buildTree(inorder, postorder);
+    }
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        for(int i = 0;i < inorder.length; i++) {
-            inorderArrayMap.put(inorder[i], i);//妙啊！将节点值及索引全部记录在哈希表中
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int i=0;i<inorder.length;i++){
+            map.put(inorder[i],i);
         }
-
-        post = postorder;
-        TreeNode root = buildTree(0, inorder.length - 1, 0, post.length - 1);
-        return root;
+        return recur(inorder, postorder);
     }
 
-    public TreeNode buildTree(int inorderStart, int inorderEnd, int postorderStart, int postorderEnd) {
-        if(inorderEnd < inorderStart || postorderEnd < postorderStart) return null;
+    private TreeNode recur(int[] inorder, int[] postorder){
+        //终止条件
+        if(inorder.length == 0 || postorder.length == 0){
+            return null;
+        }
+        //1.构造根节点(后序遍历最后的一个值就是根节点的值)
+        int currentRootVal = postorder[postorder.length-1];
+        TreeNode currentRoot = new TreeNode();
+        currentRoot.val = currentRootVal;
 
-        int root = post[postorderEnd];//根据后序遍历结果，取得根节点
-        int rootIndexInInorderArray = inorderArrayMap.get(root);//获取对应的索引
+        //2.找到root节点，在中序遍历的index
+        int rootIndex = getRootIndex(inorder,postorder);
 
-        TreeNode node = new TreeNode(root);//创建该节点
-        node.left = buildTree(inorderStart, rootIndexInInorderArray - 1, postorderStart, postorderStart + rootIndexInInorderArray - inorderStart - 1);
-        node.right = buildTree(rootIndexInInorderArray + 1, inorderEnd, postorderStart + rootIndexInInorderArray - inorderStart, postorderEnd - 1);
-        return node;//注意！返回的是新建的node！
+        //3.切割用inorder数组：用rootIndex切割inorder，得到inorder的左右半边（左树和右树）
+        int[] inorderLeft = Arrays.copyOfRange(inorder,0, rootIndex);
+        int[] inorderRight = Arrays.copyOfRange(inorder,rootIndex+1, inorder.length);
+
+        //4.切割postorder数组：postorder
+        int[] postorderLeft = Arrays.copyOfRange(postorder,0, inorderLeft.length);
+        int[] postorderRight = Arrays.copyOfRange(postorder,inorderLeft.length, postorder.length-1);
+
+        //5.递归
+        currentRoot.left = recur(inorderLeft, postorderLeft);
+        currentRoot.right = recur(inorderRight, postorderRight);
+        return currentRoot;
     }
+
+    private int getRootIndex(int[] inorder, int[] postorder){
+        int rootVal = postorder[postorder.length-1];
+        for(int i=0;i<inorder.length;i++){
+            if(inorder[i] == rootVal){
+                return i;
+            }
+        }
+        return 0;
+    }
+
+
 }
