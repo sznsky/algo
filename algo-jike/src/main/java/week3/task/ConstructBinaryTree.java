@@ -35,8 +35,8 @@ public class ConstructBinaryTree {
         }
         //1.构造根节点(后序遍历最后的一个值就是根节点的值)
         int currentRootVal = postorder[postorder.length-1];
-        TreeNode currentRoot = new TreeNode();
-        currentRoot.val = currentRootVal;
+        TreeNode root = new TreeNode();
+        root.val = currentRootVal;
 
         //2.找到root节点，在中序遍历的index
         int rootIndex = getRootIndex(inorder,postorder);
@@ -50,9 +50,9 @@ public class ConstructBinaryTree {
         int[] postorderRight = Arrays.copyOfRange(postorder,inorderLeft.length, postorder.length-1);
 
         //5.递归
-        currentRoot.left = recur(inorderLeft, postorderLeft);
-        currentRoot.right = recur(inorderRight, postorderRight);
-        return currentRoot;
+        root.left = recur(inorderLeft, postorderLeft);
+        root.right = recur(inorderRight, postorderRight);
+        return root;
     }
 
     private int getRootIndex(int[] inorder, int[] postorder){
