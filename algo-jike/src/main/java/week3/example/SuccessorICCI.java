@@ -6,7 +6,8 @@ import comm.TreeNode;
  * leetcode:后继者
  * 面试题 04.06. 后继者
  * 设计一个算法，找出二叉搜索树中指定节点的“下一个”节点（也即中序后继）。
- * 思路：中序遍历的后继者
+ * 思路：通过while找出中序遍历的后继者
+ * 注意：该思路目前在leetcode容易导致超时
  */
 public class SuccessorICCI {
 
