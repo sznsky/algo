@@ -23,6 +23,7 @@ public class InsertIntoABinarySearchTree {
         }
         //注意二叉搜索树的节点值都是唯一的
         if(val > root.val){
+            //插入的值大于当前根节点的值，插入到右边，否则插入到左边
             root.right = insertIntoBST(root.right,val);
         }else{
             root.left = insertIntoBST(root.left,val);
