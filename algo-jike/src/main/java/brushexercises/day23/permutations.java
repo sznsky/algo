@@ -25,7 +25,7 @@ public class permutations {
     private List<List<Integer>> ans;
     //中间结果
     private List<Integer> s;
-    //记录一个数字是否选择过
+    //记录一个数字是否选择过，这个是重点
     private boolean[] used;
     public List<List<Integer>> permute(int[] nums) {
         ans = new ArrayList<>();
