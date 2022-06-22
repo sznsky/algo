@@ -39,9 +39,9 @@ public class CombinationSum {
             ans.add(new ArrayList<>(ss));
             return;
         }
-        //不选择:在candidates层面循环
+        //不选择:直接跳过当前数，即跳过candidates[index]
         recur(candidates, target, index+1);
-        //选择：在已经选择
+        //选择
         if(target-candidates[index] >=0){
             ss.add(candidates[index]);
             recur(candidates, target-candidates[index], index);
