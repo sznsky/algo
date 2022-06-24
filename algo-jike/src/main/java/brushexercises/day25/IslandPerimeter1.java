@@ -13,6 +13,7 @@ public class IslandPerimeter1 {
 
     /**
      * 普通的双层for循环解决
+     * 注意边界
      * @param grid
      * @return
      */
