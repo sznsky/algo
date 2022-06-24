@@ -7,10 +7,6 @@ package brushexercises.day25;
  */
 public class IslandPerimeter {
 
-    public static void main(String[] args) {
-
-    }
-
     /**
      * 遍历网格
      * @param grid
