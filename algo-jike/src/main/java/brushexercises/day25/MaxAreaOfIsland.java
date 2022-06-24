@@ -4,7 +4,7 @@ package brushexercises.day25;
  * @Describe :leetcode:695. 岛屿的最大面积
  * @Author : sunzhenning
  * @Since : 2022/6/23 18:31
- * 思路：岛屿问题遍历的模板
+ * 思路：岛屿问题遍历的模板,DFS（深度优先遍历)
  */
 public class MaxAreaOfIsland {
 
