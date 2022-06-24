@@ -12,7 +12,7 @@ public class ValidParentheses {
     public static void main(String[] args) {
         ValidParentheses validParentheses = new ValidParentheses();
         String s = "))";
-        boolean ans = validParentheses.isValid(s);
+        boolean ans = validParentheses.isValid2(s);
         System.out.println(ans);
     }
 
@@ -43,6 +43,36 @@ public class ValidParentheses {
             char leftBracket = stack.pop();
             if((leftBracket == '(' && chr != ')') || (leftBracket == '{' && chr != '}') || (leftBracket == '[' && chr != ']')){
                 return false;
+            }
+        }
+        if (stack.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isValid2(String s) {
+        //括号个数为单数，不可能完全匹配
+        if(s.length() % 2 !=0){
+            return false;
+        }
+        char[] chars = s.toCharArray();
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < chars.length; i++) {
+            char chr = chars[i];
+            //左括号入栈
+            if('(' == chr || '{' == chr || '[' == chr){
+                stack.push(chr);
+            }else{
+                //来的是右括号，栈为空，没得匹配。
+                if(stack.isEmpty()){
+                    return false;
+                }
+                //来的是右括号，左括号出栈，左括号和右括号匹配不了
+                char leftBracket = stack.pop();
+                if((leftBracket == '(' && chr != ')') || (leftBracket == '{' && chr != '}') || (leftBracket == '[' && chr != ']')){
+                    return false;
+                }
             }
         }
         if (stack.isEmpty()) {
