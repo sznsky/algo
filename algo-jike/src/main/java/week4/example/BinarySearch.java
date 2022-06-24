@@ -18,7 +18,7 @@ public class BinarySearch {
 
     /**
      * 简单的二分查找
-     * 二分查找的前提：1.数组且有序
+     * 二分查找的前提：1.数组且有序,2.数组不重复
      * @param nums
      * @param target
      * @return

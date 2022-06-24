@@ -18,29 +18,38 @@ public class CapacityToShipPackagesWithinDDays {
         System.out.println(ans);
     }
 
+    /**
+     * 分析：1.最大的运输能力为1天运完。那么最大的运输能力就是所有包裹质量的和
+     * 2.由于包裹不能拆分，那么最低的运输能力就是最大包裹质量。
+     * 3.该题的求解的是target的后继，在给定时间内运输完成的最小运力。
+     * @param weights
+     * @param days
+     * @return
+     */
     public int shipWithinDays(int[] weights, int days) {
-        // 划分数组类问题。
-        // 怎么使用二分呢，我们可以这样想，
-        // 如果想要让所有货物在一天内被运载，那么船的最低承重应该是所有货物的和
-        // 如果想要让所有货物最慢被运载，那么船的承重就应该是货物的最大值
-        // 这个就是左右边界
+        //1.确定left和right的初始值。left初始值表示最小运力,right初始值表示最大运力
         int left = 0, right = 0;
-        for (int x : weights) {
-            left = Math.max(left, x);
-            right += x;
+        for(int i=0;i<weights.length;i++){
+            int weight = weights[i];
+            Math.max(left, weight);
+            right = right + weight;
         }
-        while (left < right) {
-            int mid = (left + right)/2;
-            int cnt = 1; // 需要的天数记录
+        //2.开始模拟运输
+        while(left < right){
+            //折中的运力
+            int mid = (left+right) / 2;
+            //需要运输的天数
+            int count = 1;
+            //每天的运输总和
             int sum = 0;
-            for (int w : weights) {
-                if (sum + w > mid) {
+            for(int i=0;i<weights.length;i++){
+                if(sum + weights[i] > mid){
+                    count++;
                     sum = 0;
-                    cnt++;
                 }
-                sum += w;
+                sum = sum + weights[i];
             }
-            if(cnt > days){
+            if(count > days){
                 left = mid +1;
             }else{
                 right = mid;
