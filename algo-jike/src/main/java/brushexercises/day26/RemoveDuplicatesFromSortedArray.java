@@ -10,6 +10,8 @@ package brushexercises.day26;
 public class RemoveDuplicatesFromSortedArray {
 
     public static void main(String[] args) {
+        RemoveDuplicatesFromSortedArray removeDuplicatesFromSortedArray = new RemoveDuplicatesFromSortedArray();
+
 
     }
 
