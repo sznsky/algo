@@ -31,6 +31,13 @@ public class NumberOfIslands {
         return count;
     }
 
+    /**
+     * 获取岛屿的面积
+     * @param grid
+     * @param r
+     * @param c
+     * @return
+     */
     int area(char[][] grid,int r,int c){
         if(!inArea(grid, r, c)){
             return 0;
@@ -47,6 +54,7 @@ public class NumberOfIslands {
                 area(grid, r,c+1);
     }
 
+    //判断是否出界
     boolean inArea(char[][] grid,int r,int c){
         return r>=0 && r < grid.length
                 && c>=0 && c < grid[0].length;

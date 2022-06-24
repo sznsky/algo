@@ -17,12 +17,17 @@ public class MaxAreaOfIsland {
         System.out.println(ans);
     }
 
-
+    /**
+     * 获取面积最大的岛屿
+     * @param grid
+     * @return
+     */
     public int maxAreaOfIsland(int[][] grid) {
         int ans = 0;
         for(int r = 0;r < grid.length; r++){
             for(int c = 0;c < grid[0].length; c++){
                 if(grid[r][c] == 1){
+                    //依次遍历岛屿的面积
                     int a = area(grid,r,c);
                     ans = Math.max(ans,a);
                 }
@@ -31,6 +36,13 @@ public class MaxAreaOfIsland {
         return ans;
     }
 
+    /**
+     * 根据岛屿的面积：0-海水 1-岛屿 2-遍历过的岛屿
+     * @param grid
+     * @param r
+     * @param c
+     * @return
+     */
     int area(int[][] grid,int r,int c){
         if(!inArea(grid, r, c)){
             return 0;
@@ -38,7 +50,7 @@ public class MaxAreaOfIsland {
         if(grid[r][c] !=1){
             return 0;
         }
-        //遍历过岛屿小格子的给2
+        //遍历过岛屿小格子的给2，防止重复遍历
         grid[r][c] = 2;
         return 1+
                 area(grid, r-1,c) +
@@ -47,9 +59,16 @@ public class MaxAreaOfIsland {
                 area(grid, r,c+1);
     }
 
+    /**
+     * 判断一个格子是不是岛屿：
+     * r行 c列
+     * @param grid
+     * @param r
+     * @param c
+     * @return
+     */
     boolean inArea(int[][] grid,int r,int c){
-        return r>=0 && r < grid.length
-                && c>=0 && c < grid[0].length;
+        return r>=0 && r < grid.length && c>=0 && c < grid[0].length;
     }
 
 }
