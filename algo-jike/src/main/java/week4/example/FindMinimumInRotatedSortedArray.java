@@ -1,8 +1,9 @@
 package week4.example;
 
 /**
- * leetcode:153. 寻找旋转排序数组中的最小值【代码写出来了，还是没有弄懂】
+ * leetcode:153. 寻找旋转排序数组中的最小值
  * 思路：二分不等式
+ * 小于等于就是求最大的，前驱类型，大于等于就是求最小的，后继类型
  */
 public class FindMinimumInRotatedSortedArray {
 
