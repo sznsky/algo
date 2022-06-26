@@ -16,6 +16,7 @@ public class FindMinimumInRotatedSortedArray {
 
     /**
      * 因为是二分查找，就是O(logn)的时间复杂度
+     * 大于等于中求最小的，后继类型
      * @param nums
      * @return
      */
