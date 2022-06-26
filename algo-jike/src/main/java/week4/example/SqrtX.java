@@ -12,8 +12,8 @@ public class SqrtX {
 
     public static void main(String[] args) {
         SqrtX q = new SqrtX();
-        int x = 8;
-        int ans = q.mySqrt(x);
+        int x = 1;
+        int ans = q.mySqrtNew(x);
         System.out.println(ans);
     }
 
@@ -29,13 +29,47 @@ public class SqrtX {
         while(left < right){
             //需要向上取整
             int mid = (left+right+1)/2;
-            if(x >= mid * mid){
+            //注意：这样写 x >= mid * mid，容易超出边界范围
+            if(x/mid >= mid){
                 left = mid;
             }else{
                 right = mid-1;
             }
         }
         return right;
+    }
+
+    /**
+     * 传统的二分查找，没有向上取整
+     * @param x
+     * @return
+     */
+    public int mySqrtNew(int x) {
+        if(x == 0){
+            return 0;
+        }
+        if(x == 1){
+            return 1;
+        }
+        //找到左右边界
+        int left  = 0;
+        int right = x;
+        int ans = 0;
+        while(left <= right){
+            //防止int溢出
+            int mid = left+(right-left)/2;
+            if(mid == 0){
+                return ans;
+            }
+            //注意：这样写 x >= mid * mid，容易超出边界范围
+            if(x/mid >= mid){
+                left = mid+1;
+                ans = Math.max(ans, mid);
+            }else{
+                right = mid-1;
+            }
+        }
+        return ans;
     }
 
 }
