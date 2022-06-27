@@ -28,7 +28,7 @@ public class BinarySearch {
         int right = nums.length-1;
         while (left <= right){
             //中间下标值是根据left和right变化的
-            int mid = (left+right)/2;
+            int mid = left + (right - left)/2;
             if(target == nums[mid]){
                 return mid;
             }
