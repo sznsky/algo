@@ -43,11 +43,12 @@ public class LongestConsecutiveSequence {
         }
         for(int num : nums){
             if(set.remove(num)){
+                //记录当前循环中。最长的连续数的长度
                 int currentLongest = 1;
                 int leftCurrentNum = num;
                 //向左遍历,遇到连续的，leftCurrentNum--
-                while(set.remove(leftCurrentNum -1)){
-                    leftCurrentNum -- ;
+                while(set.remove(leftCurrentNum -1)) {
+                    leftCurrentNum--;
                 }
                 currentLongest = currentLongest + (num - leftCurrentNum);
                 //向右遍历，遇到连续的，rightCurrentNum++
@@ -56,6 +57,7 @@ public class LongestConsecutiveSequence {
                     rightCurrentNum ++;
                 }
                 currentLongest = currentLongest + (rightCurrentNum - num);
+                //更新结果
                 ans = Math.max(ans, currentLongest);
             }
         }
