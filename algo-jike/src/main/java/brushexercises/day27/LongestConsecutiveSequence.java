@@ -18,31 +18,45 @@ public class LongestConsecutiveSequence {
 
     public static void main(String[] args) {
         LongestConsecutiveSequence sequence = new LongestConsecutiveSequence();
-        //int[] nums = {0,3,7,2,5,8,4,6,0,1};
+        int[] nums = {0,3,7,2,5,8,4,6,0,1};
         //int[] nums = {0,3,7,2,5,8,4,6,1};
         //int[] nums = {100,4,200,1,3,2};
-        int[] nums = {1,2,0,1};
+        //int[] nums = {1,2,0,1};
         int ans = sequence.longestConsecutive(nums);
         System.out.println(ans);
     }
 
+    /**
+     * 思路：题目要求O(n)的时间复杂度完成，双层for循环的遍历，肯定不行了
+     * 1。时间换空间，使用set先把nums存入
+     * 2.然后基于nums其中任何一个元素左右遍历
+     * 3.更新结果答案
+     * @param nums
+     * @return
+     */
     public int longestConsecutive(int[] nums) {
-        if(nums == null || nums.length == 0){
-            return 0;
-        }
-        int ans = 1;
-        int n = 1;
+        int ans = 0;
+        //先把所有的几个加入set中
         Set<Integer> set = new HashSet<>();
-        for(int num : nums){
-            set.add(num);
+        for(int i=0;i<nums.length;i++){
+            set.add(nums[i]);
         }
-        set.stream().sorted();
-        for(int i=1;i<nums.length;i++){
-            if(nums[i] - nums[i-1] == 1){
-                n++;
-                ans = Math.max(ans,n);
-            }else{
-                n = 1;
+        for(int num : nums){
+            if(set.remove(num)){
+                int currentLongest = 1;
+                int leftCurrentNum = num;
+                //向左遍历,遇到连续的，leftCurrentNum--
+                while(set.remove(leftCurrentNum -1)){
+                    leftCurrentNum -- ;
+                }
+                currentLongest = currentLongest + (num - leftCurrentNum);
+                //向右遍历，遇到连续的，rightCurrentNum++
+                int rightCurrentNum = num;
+                while(set.remove(rightCurrentNum +1)){
+                    rightCurrentNum ++;
+                }
+                currentLongest = currentLongest + (rightCurrentNum - num);
+                ans = Math.max(ans, currentLongest);
             }
         }
         return ans;
