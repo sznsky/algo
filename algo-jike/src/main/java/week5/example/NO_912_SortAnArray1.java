@@ -3,7 +3,7 @@ package week5.example;
 import java.util.Arrays;
 
 /**
- * leetcode:912. 排序数组
+ * leetcode:912. 排序数组-归并排序
  * 思路:使用归并排序
  */
 public class NO_912_SortAnArray1 {

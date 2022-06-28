@@ -3,7 +3,7 @@ package week5.example;
 import java.util.Arrays;
 
 /**
- * leetcode:912. 排序数组
+ * leetcode:912. 排序数组-冒泡排序
  */
 public class NO_912_SortAnArray {
 
