@@ -14,6 +14,11 @@ public class NO_912_SortAnArray {
         System.out.println(Arrays.toString(ans));
     }
 
+    /**
+     * 使用java类库：底层还是快速排序
+     * @param nums
+     * @return
+     */
     public int[] sortArray(int[] nums) {
         Arrays.sort(nums);
         return nums;
