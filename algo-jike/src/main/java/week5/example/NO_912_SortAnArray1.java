@@ -50,7 +50,7 @@ public class NO_912_SortAnArray1 {
         int i = left;
         int j = mid+1;
         for(int k=0;k<temp.length;k++){
-            //j>right说明右半部分数组都已经存完了,都已经存到temp中
+            //j>right说明右半部分数组都已经存完了,都已经存到temp中，剩下的只存在你左半部分即可
             if(j>right || (i<= mid && arr[i] <= arr[j])){
                 temp[k] = arr[i];
                 i++;
