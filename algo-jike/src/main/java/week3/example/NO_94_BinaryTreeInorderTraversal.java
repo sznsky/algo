@@ -10,7 +10,7 @@ import java.util.List;
  * 二叉树的中序遍历
  * 思路:中序遍历：左->根->右
  */
-public class BinaryTreeInorderTraversal {
+public class NO_94_BinaryTreeInorderTraversal {
 
     /**
      * 遍历后的结果

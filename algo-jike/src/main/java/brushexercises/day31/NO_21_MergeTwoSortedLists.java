@@ -1,4 +1,4 @@
-package brushexercises;
+package brushexercises.day31;
 
 import comm.ListNode;
 
