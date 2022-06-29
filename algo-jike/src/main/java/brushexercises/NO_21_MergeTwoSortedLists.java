@@ -28,6 +28,7 @@ public class NO_21_MergeTwoSortedLists {
         if(list1 != null && list2 == null){
             protectHead.next = list1;
         }
+        //list2还有没有遍历完成的，list1遍历完成了
         if(list1 == null && list2 != null){
             protectHead.next = list2;
         }
