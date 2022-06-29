@@ -3,7 +3,7 @@ package brushexercises.day31;
 import comm.TreeNode;
 
 /**
- * @Describe : leetcode:对称二叉树
+ * @Describe : leetcode:101 对称二叉树
  * @Author : sunzhenning
  * @Since : 2022/6/29 11:31
  */
