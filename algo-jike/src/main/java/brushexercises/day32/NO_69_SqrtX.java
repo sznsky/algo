@@ -5,10 +5,10 @@ package brushexercises.day32;
  * @Author : sunzhenning
  * @Since : 2022/6/30 11:18
  */
-public class LC_69_SqrtX1 {
+public class NO_69_SqrtX {
 
     public static void main(String[] args) {
-        LC_69_SqrtX1 sqrtX = new LC_69_SqrtX1();
+        NO_69_SqrtX sqrtX = new NO_69_SqrtX();
         int x = 2147483647;
         int ans = sqrtX.mySqrt(x);
         System.out.println(ans);
@@ -23,17 +23,17 @@ public class LC_69_SqrtX1 {
         if(x==0 || x ==1){
             return x;
         }
-        double left = 0;
-        double right = x;
-        while(right - left >= 1e-7){
+        int left = 0;
+        int right = x;
+        while(left < right){
             //前驱类型向上取整
-            double mid = (right+left)/2;
+            int mid = (right+left+1)/2;
             if(x/mid >= mid){
                 left = mid;
             }else{
-                right = mid;
+                right = mid-1;
             }
         }
-        return (int)right;
+        return right;
     }
 }
