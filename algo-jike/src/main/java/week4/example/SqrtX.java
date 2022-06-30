@@ -8,7 +8,7 @@ package week4.example;
  * 其实就是找最大的ans,ans*ans<=x,ans=1，显然不是最大，ans=2符合要求
  * （2）比如：求8的平方根。ans*ans<=8,ans=1,ans=2，ans=3的过程中，ans=3大了，ans=1小了，由于结果取整，因此ans=2就是最终结果
  */
-public class SqrtX {
+public class    SqrtX {
 
     public static void main(String[] args) {
         SqrtX q = new SqrtX();

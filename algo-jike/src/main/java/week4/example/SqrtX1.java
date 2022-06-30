@@ -29,7 +29,7 @@ public class SqrtX1 {
      * @param x
      * @return
      */
-        public double myRealSqrt(int x) {
+    public double myRealSqrt(int x) {
         double left = 0;
         double right = x;
         //相减的结果，小数点后面保留7位数
