@@ -1,4 +1,4 @@
-package week6;
+package week6.example;
 
 /**
  * leetcode:322. 零钱兑换
