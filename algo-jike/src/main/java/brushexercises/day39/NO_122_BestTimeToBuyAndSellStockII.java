@@ -72,14 +72,14 @@ public class NO_122_BestTimeToBuyAndSellStockII {
             return 0;
         }
         //二维数组dp[i][j],这个二维数组表示，第i天，j这种状态下最大现金数。j=0表示持有现金，1表示持有股票
-        int[] stack = new int[length];
+        int[] stock = new int[length];
         int[] cash = new int[length];
         //初始值，第0天，持有的现金为0，持有股票的金额prices[0],那么现金数就是-prices[0];
         cash[0] = 0;
-        stack[0] = -prices[0];
+        stock[0] = -prices[0];
         for(int i=1;i<length;i++){
-            cash[i] = Math.max(cash[i-1],stack[i-1]+prices[i]);
-            stack[i] = Math.max(stack[i-1],cash[i-1]-prices[i]);
+            cash[i] = Math.max(cash[i-1],stock[i-1]+prices[i]);
+            stock[i] = Math.max(stock[i-1],cash[i-1]-prices[i]);
         }
         return cash[length-1];
     }
