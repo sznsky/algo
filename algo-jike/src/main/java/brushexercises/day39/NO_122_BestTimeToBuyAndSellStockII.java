@@ -15,7 +15,7 @@ public class NO_122_BestTimeToBuyAndSellStockII {
     }
 
     /**
-     * 预言家：往后看一天，
+     * 预言家思想：往后看一天，
      * 1）后一天对于前一天涨了，持有；
      * 2）后一天对于前一天跌了，卖出；
      * @param prices
