@@ -15,6 +15,7 @@ public class RobotWalk {
     public static void main(String[] args) {
         System.out.println(ways1(4,2,4,4));
         System.out.println(ways2(4,2,4,4));
+        System.out.println(ways3(4,2,4,4));
     }
 
     /**
@@ -41,7 +42,7 @@ public class RobotWalk {
         //机器人走了k步，走完了，如果刚好到终点aim位置，这种走法是需要的，返回1，
         // 否则走了k步，没有到终点位置，那么这种走好是不符合要求的
         if(rest == 0){
-            return cur == aim ?1:0;
+            return cur == aim ? 1:0;
         }
         //rest>0
         if(cur == 1){
@@ -62,6 +63,7 @@ public class RobotWalk {
      * @return
      */
     public static int ways2(int N,int start,int aim,int K){
+        //创建缓存
         int[][] dp = new int[N+1][K+1];
         for(int i=0;i<=N;i++){
             for(int j=0;j<=K;j++){
@@ -89,6 +91,29 @@ public class RobotWalk {
         }
         dp[cur][rest] = ans;
         return ans;
+    }
+
+    /**
+     * 标准的动态规划
+     * @param N
+     * @param start
+     * @param aim
+     * @param K
+     * @return
+     */
+    public static int ways3(int N,int start,int aim,int K){
+        int[][] dp = new int[N+1][K+1];
+        dp[aim][0] = 1;
+        //列
+        for(int rest = 1;rest<=K;rest++){
+            dp[1][rest] = dp[2][rest-1];
+            //行
+            for(int cur = 2;cur<N;cur++){
+                dp[cur][rest] = dp[cur-1][rest-1] + dp[cur+1][rest-1];
+            }
+            dp[N][rest] = dp[N-1][rest-1];
+        }
+        return dp[start][K];
     }
 
 
