@@ -13,7 +13,7 @@ public class NO_70_ClimbingStairsDB {
     }
 
     /**
-     * 思路：斐波拉契递归+缓存
+     * 思路：动态规划
      * @param n
      * @return
      */
