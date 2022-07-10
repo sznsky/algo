@@ -9,11 +9,21 @@ package dp;
  * 玩家A和玩家B都是绝顶聪明的
  * 请返回最后胜者的分数
  *
+ * 思路：常规思想，递归思想
+ *
  */
 public class Zuo_PlayingCards {
 
 
-    public static int win1(int[] arr){
+    public static void main(String[] args) {
+        int[] arr = {5,7,4,5,8,1,6,0,3,4,6,1,7};
+        long t1 = System.currentTimeMillis();
+        int ans = win(arr);
+        long t2 = System.currentTimeMillis();
+        System.out.println(ans+":"+(t2-t1));
+    }
+
+    public static int win(int[] arr){
         if(arr == null || arr.length == 0){
             return 0;
         }
