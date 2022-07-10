@@ -18,26 +18,15 @@ public class NO_70_ClimbingStairsDB {
      * @return
      */
     public int climbStairs(int n) {
-        //加缓存
+        //
         int[] dp = new int[n+1];
-        return climb(n,dp);
-    }
-
-    public int climb(int n,int[] dp){
-        if(n == 1){
-            return 1;
+        dp[0] = 1;
+        dp[1] = 1;
+        for(int i=2;i<=n;i++){
+            //状态转移方程：当前步数=前一步+前两步的步数总和
+            dp[i] = dp[i-1]+dp[i-2];
         }
-        if(n == 2){
-            return 2;
-        }
-        //已经走过的，直接返回
-        if(n>0 && dp[n] != 0 ){
-            return dp[n];
-        }
-        int ans = climb(n-1,dp) + climb(n-2,dp);
-        //给刚刚走过的步数储存起来
-        dp[n] = ans;
-        return ans;
+        return dp[n];
     }
 
 }
