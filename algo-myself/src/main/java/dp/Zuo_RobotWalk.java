@@ -1,6 +1,7 @@
 package dp;
 
 /**
+ *  左程云的算法课程：
  * 机器人行走：常规搜索
  * 题意：假设有排成一排的N个位置，记为1-N,N>=2。开始时候机器人在M位置（M一定是1-N中的一个）
  * 如果机器人来到1的位置，那么下一步只能到2的位置；
@@ -9,7 +10,7 @@ package dp;
  * 规定机器人只能走K步，最终能到P的位置（P也是-1N中的一个）的有多少种？
  * 给定四个参数，N,M,k,P返回方法数
  */
-public class RobotWalk {
+public class Zuo_RobotWalk {
 
 
     public static void main(String[] args) {
@@ -27,6 +28,10 @@ public class RobotWalk {
      * @return
      */
     public static int ways1(int N,int start,int aim,int K){
+        //不符合要求的位置
+        if(N < 2 || start < 1 || start > N || aim < 1 || aim > N || K < 1){
+            return -1;
+        }
         return process1(start,K,aim,N);
     }
 
@@ -63,6 +68,10 @@ public class RobotWalk {
      * @return
      */
     public static int ways2(int N,int start,int aim,int K){
+        //不符合要求的位置
+        if(N < 2 || start < 1 || start > N || aim < 1 || aim > N || K < 1){
+            return -1;
+        }
         //创建缓存
         int[][] dp = new int[N+1][K+1];
         for(int i=0;i<=N;i++){
@@ -102,15 +111,21 @@ public class RobotWalk {
      * @return
      */
     public static int ways3(int N,int start,int aim,int K){
+        //不符合要求的位置
+        if(N < 2 || start < 1 || start > N || aim < 1 || aim > N || K < 1){
+            return -1;
+        }
         int[][] dp = new int[N+1][K+1];
         dp[aim][0] = 1;
         //列
         for(int rest = 1;rest<=K;rest++){
+            //第一行
             dp[1][rest] = dp[2][rest-1];
             //行
             for(int cur = 2;cur<N;cur++){
                 dp[cur][rest] = dp[cur-1][rest-1] + dp[cur+1][rest-1];
             }
+            //最后一行
             dp[N][rest] = dp[N-1][rest-1];
         }
         return dp[start][K];
