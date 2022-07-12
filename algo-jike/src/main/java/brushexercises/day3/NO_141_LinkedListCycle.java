@@ -7,12 +7,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
+/** 141. 环形链表
  * @Describe : leetcode:141
  * @Author : sunzhenning
  * @Since : 2022/5/31 18:40
  */
-public class LinkedListCycle {
+public class NO_141_LinkedListCycle {
 
     /**
      * 暴力解法：
@@ -35,7 +35,7 @@ public class LinkedListCycle {
     }
 
     /**
-     * 优化解法
+     * 暴力解法2
      * 使用set存放链表，能够有效的节约内存
      * @param head
      * @return
