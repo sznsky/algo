@@ -14,6 +14,13 @@ public class NO_53_MaximumSubarray {
         System.out.println(ans);
     }
 
+    /**
+     * 思路；
+     * 最大的子数组和：维护一个前置数组的最大值，如果前置数组最大值+num[i]<nums[i],
+     * 那么前置最大值肯定不会最大，取Nums[i],否则取preMax+nums[i];
+     * @param nums
+     * @return
+     */
     public int maxSubArray(int[] nums) {
         int preMax = 0;
         int ans = nums[0];
