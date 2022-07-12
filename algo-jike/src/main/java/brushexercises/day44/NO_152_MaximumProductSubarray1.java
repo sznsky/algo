@@ -8,7 +8,7 @@ package brushexercises.day44;
 public class NO_152_MaximumProductSubarray1 {
 
     public static void main(String[] args) {
-        NO_152_MaximumProductSubarray maximumProductSubarray = new NO_152_MaximumProductSubarray();
+        NO_152_MaximumProductSubarray1 maximumProductSubarray = new NO_152_MaximumProductSubarray1();
         int[] nums = {2,3,2,4};
         int ans = maximumProductSubarray.maxProduct(nums);
         System.out.println(ans);
