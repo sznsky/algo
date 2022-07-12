@@ -1,8 +1,6 @@
 package brushexercises.day1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @Describe :给你两个按 非递减顺序 排列的整数数组nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
@@ -17,7 +15,7 @@ import java.util.List;
  * @Author : sunzhenning
  * @Since : 2022/5/30 12:47
  */
-public class MergeSortedArray {
+public class NO_88_MergeSortedArray {
 
     public static void main(String[] args) {
 //        int[] nums1 = {1,2,3,0,0,0};
@@ -30,7 +28,7 @@ public class MergeSortedArray {
         int[] nums2 = {0};
         int n = 0;
 
-        MergeSortedArray mergeSortedArray = new MergeSortedArray();
+        NO_88_MergeSortedArray mergeSortedArray = new NO_88_MergeSortedArray();
         mergeSortedArray.merge(nums1,m,nums2,n);
         System.out.println(Arrays.toString(nums1));
     }
