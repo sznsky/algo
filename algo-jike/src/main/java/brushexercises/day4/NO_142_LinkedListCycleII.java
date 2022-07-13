@@ -2,14 +2,17 @@ package brushexercises.day4;
 
 import comm.ListNode;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @Describe :leetcode:142
  * @Author : sunzhenning
  * @Since : 2022/6/1 19:42
  */
-public class LinkedListCycleII {
+public class NO_142_LinkedListCycleII {
 
     /**
      * 实现方式
