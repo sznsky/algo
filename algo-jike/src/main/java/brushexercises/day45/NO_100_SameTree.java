@@ -3,7 +3,7 @@ package brushexercises.day45;
 import comm.TreeNode;
 
 /**
- * @Describe : 100. 相同的树  
+ * @Describe : 100. 相同的树
  * @Author : sunzhenning
  * @Since : 2022/7/13 19:30
  */
