@@ -9,6 +9,12 @@ import comm.TreeNode;
  */
 public class NO_100_SameTree {
 
+    /**
+     * 递归
+     * @param p
+     * @param q
+     * @return
+     */
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if(p == null && q == null){
             return true;
