@@ -5,7 +5,7 @@ package brushexercises.day51;
  * @Author : sunzhenning
  * @Since : 2022/7/20 19:21
  */
-public class NO_51_ImplementTriePrefixTree {
+public class NO_208_ImplementTriePrefixTree {
 
     public static void main(String[] args) {
         System.out.println('z'-'0');
@@ -28,7 +28,7 @@ public class NO_51_ImplementTriePrefixTree {
         }
     }
 
-    public NO_51_ImplementTriePrefixTree() {
+    public NO_208_ImplementTriePrefixTree() {
         root = new TrieNode();
     }
 
