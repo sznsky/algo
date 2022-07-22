@@ -36,7 +36,6 @@ public class QuickSort {
                 }
                 arr[high] = arr[low];
             }
-
             //比较一轮了，现在重新选择基准。现在low=high了，arr[low]和arr[high]相等了，都可以赋给base
             arr[low] = base;
             //arr[high] = base;
