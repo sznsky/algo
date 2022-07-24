@@ -1,5 +1,7 @@
 package sort;
 
+import java.util.Arrays;
+
 /**
  * @Describe :
  * @Author : sunzhenning
@@ -56,8 +58,6 @@ public class QuickSortNew {
     public static void main(String[] args) {
         int[] array = new int[]{1,5,3,6,3,5,8,10,3};
         quickSort(array);
-        for (int i : array) {
-            System.out.println(i);
-        }
+        System.out.println(Arrays.toString(array));
     }
 }
