@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="algo-geekbang" />
         <module name="algo-myself" />
         <module name="algo-jike" />
         <module name="algo-lagou" />
