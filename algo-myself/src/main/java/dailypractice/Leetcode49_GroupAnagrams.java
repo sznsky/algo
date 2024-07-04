@@ -44,7 +44,6 @@ public class Leetcode49_GroupAnagrams {
         List<List<String>> result = new ArrayList<>();
         for(Map.Entry<String,List<Integer>> entry : map.entrySet()){
             List<Integer> indexList = entry.getValue();
-            System.out.println(Arrays.toString(indexList.toArray()));
             List<String> item = new ArrayList<>();
             for(int i=0;i < indexList.size();i++){
                 item.add(strs[indexList.get(i)]);
